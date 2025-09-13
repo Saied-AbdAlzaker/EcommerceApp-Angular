@@ -4,9 +4,10 @@ import { MainLayoutComponent } from './features/layout/main-layout/main-layout.c
 import { authGuard } from './core/guard/auth/auth.guard';
 import { userGuard } from './core/guard/user/user.guard';
 import { NotFoundComponent } from './features/pages/not-found/not-found.component';
+import { HomeComponent } from './features/pages/home/home.component';
 
 export const routes: Routes = [
-    // { path: '', component: HomeComponent, title: 'Home' },
+    { path: '', component: HomeComponent, title: 'Home' },
     {
         path: '', component: AuthLayoutComponent, canActivate: [userGuard], children: [
             { path: 'signin', loadComponent: () => import('./features/auth/login/login.component').then((c) => c.LoginComponent) },
