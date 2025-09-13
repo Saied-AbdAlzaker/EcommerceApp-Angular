@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+// .input-style {
+//   @apply p-3 mt-0.5 w-full rounded-2xl border-gray-100 shadow-sm sm:text-sm;
+// }
+
+// .label-style {
+//   @apply absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5;
+// }
+
+// .button-style {
+//   @apply text-white bg-main hover:bg-main focus:ring-4 focus:outline-none focus:ring-main font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-main dark:hover:bg-main dark:focus:ring-main;
+// }
+
+a,
+button {
+  cursor: pointer;
+}
+
+// Toastr
+// .toast-container .ngx-toastr {
+//   background-color: #ddd;
+//   border: 1px solid green;
+//   color: green;
+// }
+
+// .toast-close-button,
+// .toast-title {
+// color: green;
+// }

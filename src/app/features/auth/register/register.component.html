@@ -1,0 +1,92 @@
+<section class="w-[60%] mx-auto my-10 bg-slate-100 shadow-md p-10 rounded-2xl">
+    <h2 class="text-2xl font-semibold mb-3 text-green-700">{{'auth.signupForm' | translate}}</h2>
+    <p class="text-center text-red-700 font-semibold">{{errMessage}}</p>
+    <form [formGroup]="registerForm" (submit)="submitForm()">
+        <label for="Name" class="relative">
+            <input type="text" id="Name" placeholder="" formControlName="name"
+                class="peer p-3 mt-3 w-full rounded-2xl border-gray-100 shadow-sm sm:text-sm" />
+
+            <span
+                class="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
+                Name
+            </span>
+        </label>
+        @if(registerForm.get('name')?.errors && registerForm.get('name')?.touched){
+        <div class="bg-red-100 text-red-800 border border-red-500 p-3 rounded-2xl my-2">
+            <p *ngIf="registerForm.get('name')?.errors?.['required']">Name is required</p>
+            <p *ngIf="registerForm.get('name')?.errors?.['maxLength']">MaxLength is 3 character</p>
+            <p *ngIf="registerForm.get('name')?.errors?.['minLength']">MinLength is 20 character</p>
+        </div>
+        }
+        <label for="Email" class="relative">
+            <input type="email" id="Email" placeholder="" formControlName="email"
+                class="peer p-3 mt-2 w-full rounded-2xl border-gray-100 shadow-sm sm:text-sm" />
+
+            <span
+                class="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
+                Email
+            </span>
+        </label>
+        @if(registerForm.get('email')?.errors && registerForm.get('email')?.touched){
+        <div class="bg-red-100 text-red-800 border border-red-500 p-3 rounded-2xl mt-3">
+            <p *ngIf="registerForm.get('email')?.errors?.['required']">Email is required</p>
+            <p *ngIf="registerForm.get('email')?.errors?.['email']">Email is invalid</p>
+        </div>
+        }
+        <label for="Password" class="relative">
+            <input type="password" id="Password" placeholder="" formControlName="password"
+                class="peer p-3 mt-3 w-full rounded-2xl border-gray-100 shadow-sm sm:text-sm" />
+
+            <span
+                class="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
+                Password
+            </span>
+        </label>
+        @if(registerForm.get('password')?.errors && registerForm.get('password')?.touched){
+        <div class="bg-red-100 text-red-800 border border-red-500 p-3 rounded-2xl my-2">
+            <p *ngIf="registerForm.get('password')?.errors?.['required']">Password is required</p>
+            <p *ngIf="registerForm.get('password')?.errors?.['pattern']">Password is invalid</p>
+        </div>
+        }
+        <label for="rePassword" class="relative">
+            <input type="password" id="rePassword" placeholder="" formControlName="rePassword"
+                class="peer p-3 mt-3 w-full rounded-2xl border-gray-100 shadow-sm sm:text-sm" />
+
+            <span
+                class="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
+                New Password
+            </span>
+        </label>
+        @if(registerForm.getError('mismatch') && registerForm.get('rePassword')?.touched){
+        <div class="bg-red-100 text-red-800 border border-red-500 p-3 rounded-2xl my-2">
+            <!-- <p *ngIf="registerForm.get('rePassword')?.errors?.['required']">New password is required</p> -->
+            <p>Password and new password is not matched</p>
+        </div>
+        }
+        <label for="Phone" class="relative">
+            <input type="tel" id="Phone" placeholder="" formControlName="phone"
+                class="peer p-3 mt-3 w-full rounded-2xl border-gray-100 shadow-sm sm:text-sm" />
+
+            <span
+                class="absolute inset-y-0 start-3 -translate-y-5 bg-white px-0.5 text-sm font-medium text-gray-700 transition-transform peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-5">
+                Phone
+            </span>
+        </label>
+        @if(registerForm.get('phone')?.errors && registerForm.get('phone')?.touched){
+        <div class="bg-red-100 text-red-800 border border-red-500 p-3 rounded-2xl my-2">
+            <p *ngIf="registerForm.get('phone')?.errors?.['required']">Phone is required</p>
+            <p *ngIf="registerForm.get('phone')?.errors?.['pattern']">Phone is invalid</p>
+        </div>
+        }
+        <div class="text-end mt-3">
+            <button type="submit"
+                class="text-white bg-main hover:bg-main focus:ring-4 focus:outline-none focus:ring-main font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-main dark:hover:bg-main dark:focus:ring-main">
+                @if (loading) {
+                <i class="fa fa-spin fa-spinner"></i>
+                } @else{
+                Register
+                }
+            </button>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,85 @@
+<section>
+    <div class="mx-auto max-w-screen-xl sm:px-6 sm:py-12 lg:px-2 bg-main-light">
+        <div class="md:mx-auto">
+            @if (cart.length > 0) {
+            <div class="md:flex justify-between gap-5 p-3">
+                <div class="md:w-2/3">
+                    <div class="text-end">
+                        <button (click)="clearCart()" type="button"
+                            class="border border-red-600 px-4 py-2 rounded-2xl text-red-600 transition hover:bg-red-600 hover:text-white cursor-pointer">
+                            Clear
+                        </button>
+                    </div>
+                    @for(item of cart;track item._id){
+                    <ul class="space-y-4 border border-t-0 border-r-0 border-l-0  border-b-fuchsia-950">
+                        <li class="flex items-center">
+                            <img [src]="item.product.imageCover" [alt]="item.product.title"
+                                class="size-32 rounded-sm object-cover" />
+                            <div class="flex flex-col gap-3">
+                                <h3 class="text-sm text-gray-900">{{item.product.title}}
+                                </h3>
+                                <dl class="mt-0.5 space-y-px text-sm text-gray-600">
+                                    <div>
+                                        <dt class="inline me-2">Category:</dt>
+                                        <dd class="inline">{{item.product.category.name}}</dd>
+                                    </div>
+                                    <div class="text-main">
+                                        <dt class="inline me-2">Price:</dt>
+                                        <dd class="inline">{{item.price | currency:'EGP '}}</dd>
+                                    </div>
+                                    <div>
+                                        <dt class='inline me-2'>Total Price:</dt>
+                                        <dd class="inline">{{item.price * item.count | currency:'EGP '}}</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                            <div class="flex flex-1 items-center justify-end gap-2">
+                                <div class='mx-5'>
+                                    <button (click)="updateUserCart(item.product.id,item.count - 1)" type="button"
+                                        class="inline-block rounded-2xl border border-green-600 px-2 p-1 font-medium hover:bg-green-600 hover:text-white cursor-pointer">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                    <span class='mx-3'>{{item.count}}</span>
+                                    <button (click)="updateUserCart(item.product._id,item.count + 1)" type="button"
+                                        class="inline-block rounded-2xl border border-green-600 px-2 py-1 font-medium hover:bg-green-600 hover:text-white cursor-pointer">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
+                                <button (click)="removeUserCart(item.product._id)" type="button"
+                                    class="text-gray-600 transition hover:text-red-600 cursor-pointer">
+                                    Remove
+                                    <i class="fa-solid fa-trash-can mx-2"></i>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                    }
+                </div>
+                <div class="md:w-1/3">
+                    <div
+                        class="mt-5 md:max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                        <h1 class="text-xl font-bold text-gray-700 sm:text-3xl">Shop Cart</h1>
+                        <div class='p-2'>
+                            <div class="border border-t-0 border-r-0 border-l-0  border-b-fuchsia-950 mb-3">
+                                <h4 class='text-main'>Total Cart Items: {{cartList.numOfCartItems}}</h4>
+                                <h4 class='text-main'>Total Cart Price: {{cartList.data.totalCartPrice}}</h4>
+                            </div>
+                            <div class="text-center">
+                                <a [routerLink]="['/address',cartList.cartId]"
+                                    class='border w-full border-main px-4 py-2 rounded-2xl text-main transition hover:bg-main hover:text-white cursor-pointer'>
+                                    Buy Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }@else {
+            <div class='flex justify-center items-center p-10'>
+                <h2 class="text-4xl">Your cart is empty</h2>
+                <img src="assets/images/cart.png" alt="empty cart">
+            </div>
+            }
+        </div>
+    </div>
+</section>

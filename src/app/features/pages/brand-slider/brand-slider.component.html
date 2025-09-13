@@ -1,0 +1,10 @@
+<div>
+    <owl-carousel-o [options]="customOptions" class="mt-3">
+        @for (brand of brandsList; track brand._id) {
+        <ng-template carouselSlide [id]="brand._id">
+            <img [src]="brand.image" [alt]="brand.name" [title]="brand.name" class="h-[250px]">
+            <p class="text-main text-center">{{brand.name}}</p>
+        </ng-template>
+        }
+    </owl-carousel-o>
+</div>
