@@ -1,11 +1,12 @@
-<section>
+<section class="md:w-[95%] mx-auto my-5 bg-slate-200 p-5 rounded-xl">
     <div class="md:w-[50%] mx-auto my-3">
         <input [(ngModel)]="searchValue" type="text" placeholder="Search by name...."
             class="w-full rounded-2xl border p-2">
     </div>
+    <h4 class="ms-15 text-3xl font-light my-3">{{'product' | translate}}</h4>
     <div class="md:flex flex-wrap">
         @for(product of productsList() | filter: searchValue; track product._id){
-        <div class="md:w-1/4 p-3">
+        <div class="group md:w-1/4 p-3">
             <div class="shadow-sm border border-main p-3 rounded-2xl h-full hover:shadow-current">
                 <div [routerLink]="['/productDetails',product._id]" class="cursor-pointer">
                     <img [src]="product.imageCover" [alt]="product.title" class="w-full h-[200px]">

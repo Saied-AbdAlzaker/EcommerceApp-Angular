@@ -7,11 +7,13 @@ export const headerInterceptor: HttpInterceptorFn = (req, next) => {
   let platForm = inject(PLATFORM_ID);
 
   if (isPlatformBrowser(platForm)) {
-    req = req.clone({
-      setHeaders: { token: localStorage.getItem('userToken') || '' }
-    })
+    if (localStorage.getItem('userToken') !== null) {
+      req = req.clone({
+        setHeaders: { token: localStorage.getItem('userToken') || '' }
+      })
+    }
   }
 
-
   return next(req);
+
 };

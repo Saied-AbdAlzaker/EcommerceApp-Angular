@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EndPoint } from '../../constant/endPoint';
 import { ResetPassword, ResponseForgetPassword, ResponseResetCode, ResponseResetPassword } from '../../../shared/interfaces/auth';
+import { EndPoint } from '../../constant/endPoint';
 
 @Injectable({
   providedIn: 'root'

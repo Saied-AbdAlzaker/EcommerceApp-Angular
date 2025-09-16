@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { EndPoint } from '../../constant/endPoint';
 import { IResponseCart, IResponseShippingAddress, IShippingAddress } from '../../../shared/interfaces/cart';
+import { EndPoint } from '../../constant/endPoint';
 
 @Injectable({
   providedIn: 'root'

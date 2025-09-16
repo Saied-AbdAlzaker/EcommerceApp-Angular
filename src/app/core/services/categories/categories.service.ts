@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EndPoint } from '../../constant/endPoint';
 import { ResponseCategory, ResponseSpecificCategory } from '../../../shared/interfaces/categories';
+import { EndPoint } from '../../constant/endPoint';
 
 @Injectable({
   providedIn: 'root'

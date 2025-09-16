@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Auth, ResponseUser, User } from '../../../shared/interfaces/auth';
-import { jwtDecode, JwtPayload } from 'jwt-decode';
+import { Observable } from 'rxjs';
+import { Auth, ResponseUser } from '../../../shared/interfaces/auth';
+import { jwtDecode } from 'jwt-decode';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { EndPoint } from '../../constant/endPoint';

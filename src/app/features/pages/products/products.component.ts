@@ -7,11 +7,12 @@ import { FilterPipe } from '../../../shared/pipe/filter.pipe';
 import { RouterLink } from '@angular/router';
 import { CartService } from '../../../core/services/cart/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-products',
   imports: [CommonModule, CurrencyPipe, FilterPipe,
-    FormsModule, RouterLink],
+    FormsModule, RouterLink,TranslateModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
